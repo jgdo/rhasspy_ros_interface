@@ -7,13 +7,13 @@ Listens on port 1337 for JSON messages. Can be registered in Rhasspy as [remote 
     
 # ROS API
 ## Subscribed Topics
-- *speach_intent* (rhasspy_ros_interface/Intent) 
-
-  Recognized intent by Rhasspy with slot/value map
-
-## Published Topics
-
 - *speak* (std_msgs/String)
 
   Speak the given string with Rhasspy TTS. Does a [POST to http://localhost:12101/api/speech_to_text](https://rhasspy.readthedocs.io/en/latest/reference/#endpoints) internally.
   
+
+
+## Published Topics
+- *speach_intent* (rhasspy_ros_interface/Intent) 
+
+  Recognized intent by Rhasspy with slot/value map
