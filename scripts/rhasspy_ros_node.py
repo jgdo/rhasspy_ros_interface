@@ -5,6 +5,8 @@ from flask import Flask, request
 import flask.json
 import threading
 import os
+import requests
+import std_msgs.msg
 
 app = Flask(__name__)
 
@@ -44,6 +46,10 @@ def hello_world():
     )
     return response
 
+def speak_callback(msg):
+    url = 'http://localhost:12101/api/text-to-speech'
+    requests.post(url, data=msg.data)
+
 def run_flask_server():
     app.run(host="0.0.0.0", port=1337)
 
@@ -54,6 +60,8 @@ def main():
     t = threading.Thread(target=run_flask_server)
     t.setDaemon(True)
     t.start()
+
+    rospy.Subscriber("speak", std_msgs.msg.String, speak_callback)
 
     rospy.spin()
 
