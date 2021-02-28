@@ -1,10 +1,10 @@
 #!/usr/bin/env python
+
 import rospy
 from rhasspy_ros_interface.msg import Intent
 from flask import Flask, request
 import flask.json
 import threading
-import os
 import requests
 import std_msgs.msg
 
